@@ -1,0 +1,32 @@
+﻿<Window x:Class="ShuffleGameWPF.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShuffleGameWPF"
+        mc:Ignorable="d"
+        Title="LoginWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen"
+        ContentRendered="LoginWindow_OnContentRendered" Background="SlateGray"
+        ResizeMode="CanMinimize" >
+    <Grid Margin="15" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Source="Images/icon_login.png" Width="50" Height="50" Grid.RowSpan="2" Margin="15,0" />
+
+        <Label Name="lblTitle" FontSize="15" Grid.Column="1">Hello! Please, enter your NickName:</Label>
+        <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="txtNickName" Grid.Column="1" Grid.Row="1" MinWidth="250">Admin</TextBox>
+
+        <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button IsDefault="True" Name="btnDialogOk" MinWidth="60" Margin="0,0,10,0" Click="btnDialogOk_Click">_Ok</Button>
+            <Button IsCancel="True" MinWidth="60" Click="Button_Click">_Cancel</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

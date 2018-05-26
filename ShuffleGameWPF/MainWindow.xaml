@@ -1,0 +1,81 @@
+﻿<Window x:Class="ShuffleGameWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShuffleGameWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="MainBtn">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="BurlyWood"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Menu controls-->
+        <DockPanel Height="50">
+            <Menu DockPanel.Dock="Top" FontSize="14">
+                <MenuItem Header="_Menu">
+                    <MenuItem Header="_New game" Name="NewGameMenuItem" Click="NewGameMenuItem_Click" />
+                    <MenuItem Header="_Log Out" />
+                    <Separator />
+                    <MenuItem Header="_Exit" Name="ExitMenuItem" Click="ExitMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Records">
+                    <MenuItem Header="Show table Records" Click="MenuItem_Click"/>
+                    <MenuItem Header="Your Record" Click="MenuItem_Click_1"/>
+                </MenuItem>
+                <MenuItem Header="Info">
+                    <MenuItem Header="Show info"/>
+                </MenuItem>
+                <Label Margin="160 0 0 0 " Content="Time: "/>
+                <Label Name="LblTimeSpan" Content="00:00:00"/>
+            </Menu>
+           
+           
+        </DockPanel>
+
+        <!--Main Field-->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name ="btn1" Click="MainBtn_Click" Grid.Row="0" Grid.Column="0" Style="{StaticResource MainBtn}">1</Button>
+            <Button x:Name ="btn2" Click="MainBtn_Click" Grid.Row="0" Grid.Column="1" Style="{StaticResource MainBtn}">2</Button>
+            <Button x:Name ="btn3" Click="MainBtn_Click" Grid.Row="0" Grid.Column="2" Style="{StaticResource MainBtn}">3</Button>
+            <Button x:Name ="btn4" Click="MainBtn_Click" Grid.Row="0" Grid.Column="3" Style="{StaticResource MainBtn}">4</Button>
+            <Button x:Name ="btn5" Click="MainBtn_Click" Grid.Row="1" Grid.Column="0" Style="{StaticResource MainBtn}">5</Button>
+            <Button x:Name ="btn6" Click="MainBtn_Click" Grid.Row="1" Grid.Column="1" Style="{StaticResource MainBtn}">6</Button>
+            <Button x:Name ="btn7" Click="MainBtn_Click" Grid.Row="1" Grid.Column="2" Style="{StaticResource MainBtn}">7</Button>
+            <Button x:Name ="btn8" Click="MainBtn_Click" Grid.Row="1" Grid.Column="3" Style="{StaticResource MainBtn}">8</Button>
+            <Button x:Name ="btn9" Click="MainBtn_Click" Grid.Row="2" Grid.Column="0" Style="{StaticResource MainBtn}">9</Button>
+            <Button x:Name ="btn10" Click="MainBtn_Click" Grid.Row="2" Grid.Column="1" Style="{StaticResource MainBtn}">10</Button>
+            <Button x:Name ="btn11" Click="MainBtn_Click" Grid.Row="2" Grid.Column="2" Style="{StaticResource MainBtn}">11</Button>
+            <Button x:Name ="btn12" Click="MainBtn_Click" Grid.Row="2" Grid.Column="3" Style="{StaticResource MainBtn}">12</Button>
+            <Button x:Name ="btn13" Click="MainBtn_Click" Grid.Row="3" Grid.Column="0" Style="{StaticResource MainBtn}">13</Button>
+            <Button x:Name ="btn14" Click="MainBtn_Click" Grid.Row="3" Grid.Column="1" Style="{StaticResource MainBtn}">14</Button>
+            <Button x:Name ="btn15" Click="MainBtn_Click" Grid.Row="3" Grid.Column="2" Style="{StaticResource MainBtn}">15</Button>
+        </Grid>
+    </Grid>
+</Window>
+
