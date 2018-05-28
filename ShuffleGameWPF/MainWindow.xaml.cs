@@ -17,7 +17,7 @@ namespace ShuffleGameWPF
         private bool _isNewGame = false;
         DispatcherTimer _timer = new DispatcherTimer();
         Stopwatch sw = new Stopwatch();
-        string currentTime = "00:00:00";
+        string currentTime = "--:--:--";
         private string _currNickName;
 
         public MainWindow()
@@ -71,7 +71,7 @@ namespace ShuffleGameWPF
                     _emptyPosition = tempPosition;
                 }
             }
-            if(!_isNewGame)
+            if(_isNewGame)
                 if (IsFinish())
                 {
                     if (sw.IsRunning)
@@ -81,14 +81,17 @@ namespace ShuffleGameWPF
 
                     var currTime = TimeSpan.Parse(currentTime);
                     var tableTime =
-                        TimeSpan.Parse(Db_Controller.GetPlayers().First(x => x.NickName == _currNickName).Result==""?
+                        TimeSpan.Parse(Db_Controller.GetPlayers().First(x => x.NickName == _currNickName).Result== "--:--:--" ?
                             "11:59:59":
                             Db_Controller.GetPlayers().First(x => x.NickName == _currNickName).Result);
-                    if (TimeSpan.Compare(currTime, tableTime) == -1)
+
+
+                    if (tableTime.ToString() == "--:--:--" ||  TimeSpan.Compare(currTime, tableTime) == -1)
                     {
                         Db_Controller.UpdateResult(_currNickName,currentTime);
                     }
-                    MessageBox.Show($"Congratulations!\n You Win!\n Your time:{currentTime}");
+                    MessageBox.Show($"Congratulations!\n You Win!\n Your best time:{currentTime}");
+                    _isNewGame = false;
                 }
         }
 
@@ -119,16 +122,17 @@ namespace ShuffleGameWPF
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
+
         }
 
         private void NewGameMenuItem_Click(object sender, RoutedEventArgs e)
         {
             sw.Reset();
             LblTimeSpan.Content = "00:00:00";
-            _isNewGame = true;
-            RandomShuffle();
             _isNewGame = false;
+            RandomShuffle();
+            _isNewGame = true;
             _timer.Start(); //timer start
             sw.Start();     //stop watch start
         }
@@ -169,6 +173,24 @@ namespace ShuffleGameWPF
         {
             MessageBox.Show(
                 $"Your result is: {Db_Controller.GetPlayers().First(x => x.NickName == _currNickName).Result}");
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void LogOutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var logWind = new LoginWindow();
+            logWind.Show();
+        }
+
+        private void InfoMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            InfoWindow info = new InfoWindow();
+            info.Show();
         }
     }
 }

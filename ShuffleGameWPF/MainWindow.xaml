@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ShuffleGameWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="500"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
 
     <Window.Resources>
         <Style TargetType="Button" x:Key="MainBtn">
@@ -27,7 +27,7 @@
             <Menu DockPanel.Dock="Top" FontSize="14">
                 <MenuItem Header="_Menu">
                     <MenuItem Header="_New game" Name="NewGameMenuItem" Click="NewGameMenuItem_Click" />
-                    <MenuItem Header="_Log Out" />
+                    <MenuItem Header="_Log Out" Name ="LogOutMenuItem" Click="LogOutMenuItem_Click"  />
                     <Separator />
                     <MenuItem Header="_Exit" Name="ExitMenuItem" Click="ExitMenuItem_Click"/>
                 </MenuItem>
@@ -36,7 +36,7 @@
                     <MenuItem Header="Your Record" Click="MenuItem_Click_1"/>
                 </MenuItem>
                 <MenuItem Header="Info">
-                    <MenuItem Header="Show info"/>
+                    <MenuItem Header="Show info" Name="InfoMenuItem" Click="InfoMenuItem_Click"/>
                 </MenuItem>
                 <Label Margin="160 0 0 0 " Content="Time: "/>
                 <Label Name="LblTimeSpan" Content="00:00:00"/>

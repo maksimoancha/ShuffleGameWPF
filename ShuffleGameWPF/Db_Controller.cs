@@ -30,14 +30,13 @@ namespace ShuffleGameWPF
                 SQLiteCommand command = connection.CreateCommand();
                 command.CommandText = $"select count(*) from tb_Players where NickName = '{player}'";
                 int res = (int)(long)command.ExecuteScalar();
-                //connection.Close();
                 if (res == 0)
                     return false;
                 return true;
             }
         }
 
-        public static void InsertPlayer(string nickName, string result = null) //insert player into database with specified NickName and result of game
+        public static void InsertPlayer(string nickName, string result = "--:--:--") //insert player into database with specified NickName and result of game
         {
             using (connection = new SQLiteConnection("Data Source = dbShuffleGame.db; Version = 3"))
             {
@@ -45,7 +44,6 @@ namespace ShuffleGameWPF
                 SQLiteCommand command = connection.CreateCommand();
                 command.CommandText = $"INSERT INTO tb_Players (NickName, Result) values ('{nickName}', '{result}');";
                 command.ExecuteNonQuery();
-                //connection.Close();
             }
         }
 
@@ -62,7 +60,7 @@ namespace ShuffleGameWPF
                 SQLiteCommand command = connection.CreateCommand();
                 command.CommandText = $"update tb_Players set Result = '{result}' where NickName = '{nickName}';";
                 command.ExecuteNonQuery();
-                //connection.Close();
+                connection.Close();
             }
         }
 
@@ -88,7 +86,7 @@ namespace ShuffleGameWPF
                         list.Add(pl);
                     }
                 }
-                //connection.Close();
+                
                 return list;
             }
             
