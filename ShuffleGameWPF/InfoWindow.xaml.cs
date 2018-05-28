@@ -25,13 +25,6 @@ namespace ShuffleGameWPF
             InitializeComponent();
         }
 
-        private void hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            string uri = e.Uri.AbsoluteUri;
-            Process.Start(new ProcessStartInfo(uri));
-            e.Handled = true;
-        }
-
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             // open URL

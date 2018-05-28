@@ -190,7 +190,7 @@ namespace ShuffleGameWPF
         private void InfoMenuItem_Click(object sender, RoutedEventArgs e)
         {
             InfoWindow info = new InfoWindow();
-            info.Show();
+            info.ShowDialog();
         }
     }
 }
