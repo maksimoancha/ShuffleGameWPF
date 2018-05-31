@@ -21,8 +21,12 @@
 
         <Image Source="Images/icon_login.png" Width="50" Height="50" Grid.RowSpan="2" Margin="15,0" />
 
-        <Label Name="lblTitle" FontSize="15" Grid.Column="1">Hello! Please, enter your NickName:</Label>
-        <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="txtNickName" Grid.Column="1" Grid.Row="1" MinWidth="250">Admin</TextBox>
+        <Label Name="lblTitle" FontSize="15" Grid.Column="1">
+            Hello! Please, enter your NickName:
+        </Label>
+        <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="txtNickName" Grid.Column="1" Grid.Row="1" MinWidth="250">
+            Admin
+        </TextBox>
 
         <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
             <Button IsDefault="True" Name="btnDialogOk" MinWidth="60" Margin="0,0,10,0" Click="btnDialogOk_Click">_Ok</Button>

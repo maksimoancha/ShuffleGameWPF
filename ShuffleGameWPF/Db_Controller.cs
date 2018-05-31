@@ -21,10 +21,11 @@ namespace ShuffleGameWPF
     public static class Db_Controller
     {
         private static SQLiteConnection connection;
+        private static string _connString = "Data Source = dbShuffleGame.db; Version = 3";
 
         public static bool ContainsPlayer(string player) //checing to contains in database player with specified NickName
         {
-            using (connection = new SQLiteConnection("Data Source = dbShuffleGame.db; Version = 3"))
+            using (connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
                 SQLiteCommand command = connection.CreateCommand();
@@ -38,7 +39,7 @@ namespace ShuffleGameWPF
 
         public static void InsertPlayer(string nickName, string result = "--:--:--") //insert player into database with specified NickName and result of game
         {
-            using (connection = new SQLiteConnection("Data Source = dbShuffleGame.db; Version = 3"))
+            using (connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
                 SQLiteCommand command = connection.CreateCommand();
@@ -54,7 +55,7 @@ namespace ShuffleGameWPF
         /// <param name="result"></param>
         public static void UpdateResult(string nickName, string result)
         {
-            using (connection = new SQLiteConnection("Data Source = dbShuffleGame.db; Version = 3"))
+            using (connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
                 SQLiteCommand command = connection.CreateCommand();
@@ -70,7 +71,7 @@ namespace ShuffleGameWPF
         /// <returns></returns>
         public static List<Player> GetPlayers()
         {
-            using (connection = new SQLiteConnection("Data Source = dbShuffleGame.db; Version = 3"))
+            using (connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
                 SQLiteCommand command = connection.CreateCommand();

@@ -49,7 +49,7 @@ namespace ShuffleGameWPF
         {
             var btn = sender as Button;
 
-            if ((int) btn.GetValue(Grid.RowProperty) == _emptyPosition.Key) //if button and empty field stay int 1 row
+            if ((int) btn.GetValue(Grid.RowProperty) == _emptyPosition.Key) //if button and empty field stay in 1 row
             {
                 if ((int) btn.GetValue(Grid.ColumnProperty) + 1 == _emptyPosition.Value ||
                     (int) btn.GetValue(Grid.ColumnProperty) - 1 == _emptyPosition.Value)
@@ -60,7 +60,7 @@ namespace ShuffleGameWPF
                     _emptyPosition = tempPosition;
                 }
             }
-            if ((int) btn.GetValue(Grid.ColumnProperty) == _emptyPosition.Value) //if button and empty field stay int 1 column
+            if ((int) btn.GetValue(Grid.ColumnProperty) == _emptyPosition.Value) //if button and empty field stay in 1 column
             {
                 if ((int) btn.GetValue(Grid.RowProperty) + 1 == _emptyPosition.Key ||
                     (int) btn.GetValue(Grid.RowProperty) - 1 == _emptyPosition.Key)

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShuffleGameWPF"
         mc:Ignorable="d"
-        Title="InfoWindow" Height="230" Width="400">
+        Title="InfoWindow" Height="230" Width="400" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" >
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="18"/>
